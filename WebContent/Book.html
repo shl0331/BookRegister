@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>도 서 등 록 </title>
+<link rel="stylesheet" type="text/css" href="my.css">
+<style type="text/css">
+body {
+	margin: 100px;
+}
+</style>
+<script type="text/javascript" src="DigitCheck.js"></script>
+<script type="text/javascript">
+function regCheck() {
+	var name = document.getElementById("NAME");
+	var date = document.getElementById("DATE");
+	var code = document.getElementById("CODE");
+	var number = document.getElementById("NUMBER");
+	
+	if(name.value<1) {
+		alert("이름은 1글자 이상");
+		name.focus();
+		return;
+	}
+	
+	if(date.value<8) {
+		alert("도서가 들어온 날짜는 8글자 이상");
+		date.focus();
+		return;
+	}
+	
+	if(!isNumInclude(date.value) {
+		alert("date는 숫자를 포함해야 함");
+		date.focus();
+		return;
+	}
+	
+	if(code.value<8) {
+		alert("도서코드는 8글자 이상");
+		code.focus();
+		return;
+	}
+	
+	if(!isNumInclude(code.value) {
+		alert("date는 숫자를 포함해야 함");
+		code.focus();
+		return;
+	}
+	
+	if(!isNumInclude(number.value) {
+		alert("수량은 숫자를 포함해야 함");
+		number.focus();
+		return;
+	}
+
+}
+
+</script>
+</head>
+<body>
+	<form name = "regForm" method="post" action="main.do?action=BOOKREGISTER">
+		<table>
+			<tr>
+				<td id="myid" align = "right">도서명</td>
+				<td width = "50%"><Input type="text" name="NAME" id="NAME" required="required"></td>
+			</tr>
+			
+			<tr>
+				<td id="myid" align = "right">장르</td>
+				<td width = "50%"><Input type="text" name="GENRE" id="GENRE"></td>
+			</tr>
+			
+			<tr>
+				<td id="myid" align = "right">들어온 날짜</td>
+				<td width = "50%"><Input type="text" name="DATE" id="DATE" ></td>
+			</tr>
+			
+			<tr>
+				<td id="myid" align = "right">CODE</td>
+				<td width = "50%"><Input type="text" name="CODE" id="CODE" ></td>
+			</tr>
+		
+			<tr>
+				<td id="myid" align = "right">수량</td>
+				<td width = "50%"><Input type="text" name="NUMBER" id="NUMBER" ></td>
+			</tr>
+			
+			<tr>
+				<td id="myid" align = "right">가격</td>
+				<td width = "50%"><Input type="text" name="PRICE" id="PRICE" ></td>
+			</tr>
+			
+			<tr>
+				<td align="right">출판사</td>
+				<td><select name="PUBLISHER" id="PUBLISHER">
+					<option value="publisherA">출판사A</option>
+					<option value="publisherB">출판사B</option>
+					<option value="publisherC">출판사C</option>
+					<option value="publisherD">출판사D</option>
+					<option value="publisherE">출판사E</option>
+				</select></td>
+			</tr>
+			
+			<tr>
+				<td class="name" align="right">책 상태</td>
+				<td><Input type="radio" name="STATE" value="top" checked>상
+				<Input type="radio" name="STATE" value="mid">중
+				<Input type="radio" name="STATE" value="bottom">하</td>
+			</tr>
+			
+			<tr>
+				<td class="name" align="right">대출여부</td>
+				<td><Input type="radio" name="LENDING" value="Yes" checked>Yes
+				<Input type="radio" name="LENDING" value="No">No</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="right">
+					<input type="submit" value="도서 등록">
+					<input type="reset" value="초기화">
+					<a href="main.do?action=MAIN">메인 화면</a>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
